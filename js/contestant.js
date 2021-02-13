@@ -3,6 +3,7 @@ class contestant {
     constructor(){
       this.index = null;
       this.name = null;
+      this.answer = null;
   
     }
   
@@ -25,29 +26,16 @@ class contestant {
       var contestantIndex = "contestants/contestant" + this.index;
       database.ref(contestantIndex).set({
         name: this.name,
+        answer: this.answer
       
       })
     }
-  
+    
     static getPlayerInfo(){
       var contestantInfoRef = database.ref('contestants');
+
       contestantInfoRef.on("value", (data)=>{
         allContestants = data.val();
       })
     }
-    
-    display(){
-        this.button.mousePressed(()=>{
-            this.title.hide();
-            this.input1.hide();
-            this.button.hide();
-
-            Contestant.name = this.input1.value();
-            contestantCount+=1;
-            Contestant.index = contestantCount;
-
-            Contestant.update();
-            Contestant.updateCount(contestantCount)
-        }
-    )}
 }
