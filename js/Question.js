@@ -19,6 +19,7 @@ class Question {
         this.button1.hide();
         this.input.hide();
         this.input2.hide();
+        this.title.hide();
       }
 
 
@@ -58,8 +59,11 @@ class Question {
             contestantCount+=1;
             Contestant.index = contestantCount;
 
+            Contestant.answer = this.input2.value()
+
             Contestant.update();
             Contestant.updateCount(contestantCount);
+            
         }
     )}
                 
