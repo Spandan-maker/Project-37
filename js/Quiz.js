@@ -33,34 +33,25 @@ class Quiz{
     }
 
     play(){
-        title.hide();
-        question.hide();
-
-        this.option1.hide();
-        this.option2.hide();
-        this.option3.hide();
-        this.option4.hide();
-
-
+        
         textSize(30);
-        text("Results", 120, 100)
+        text("Results", 120, 50)
 
-        Contestant.getPlayerInfo();
+        contestant.getPlayerInfo();
     
         if(allContestants !== undefined){
 
           for(var plr in allContestants){
 
             var correctAns = "2";
+
             if (correctAns === allContestants[plr].answer)
-              fill("green")
+              fill("green");
             else
               fill("red");
-    
-            
-            textSize(15);
-            text(allPlayers[plr].name + ": " + allPlayers[plr].answer, 120, 300)
           }
+          textSize(15);
+          text(allContestants[plr].name + ": " + allContestants[plr].answer, 120, 300);
         }
       }
 
