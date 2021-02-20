@@ -37,7 +37,8 @@ class Quiz{
         textSize(30);
         text("Results", 120, 50)
 
-        contestant.getPlayerInfo();
+        contestant.getPlayerInfo();  
+        var display_Position = 300;
     
         if(allContestants !== undefined){
 
@@ -45,14 +46,19 @@ class Quiz{
 
             var correctAns = "2";
 
-            if (correctAns === allContestants[plr].answer)
+            if (correctAns === allContestants[plr].answer){
               fill("green");
-            else
+
+              display_Position += 20;
+
+              textSize(15);
+              text(allContestants[plr].name + ": " + allContestants[plr].answer, 120, display_Position);
+            
+            } else{
               fill("red");
-          }
-          textSize(15);
-          text(allContestants[plr].name + ": " + allContestants[plr].answer, 120, 300);
+
+            }
         }
       }
-
+    }
 }
